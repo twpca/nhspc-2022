@@ -5,7 +5,7 @@
 ## Guidepost
 
 - [checker](checker/): 尚未公開
-- [比賽設定](config/): 尚未公開
+- [比賽設定](config/)
 - [題目敘述 md](problems/)
 - [solution](solution/): 尚未公開
 - [validator](validator/): 尚未公開
