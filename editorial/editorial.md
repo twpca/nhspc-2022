@@ -105,7 +105,7 @@ constexpr std::array<std::array<int, S>, R> get_binom(){
 constexpr std::array<std::array<int, S>, R> Binom = get_binom();
 ```
 
-因此字典序第 $k$ 小序列可以在 $O(\mu n)$ 時間得到，這裡 $\mu$ 是滿足 $\mu! \ge 10^9$ 的最小整數。
+因此字典序第 $k$ 小序列可以在 $O(\mu n)$ 時間得到，這裡 $\mu$ 是滿足 $\mu! \ge k$ 的最小整數。
 
 ---
 
