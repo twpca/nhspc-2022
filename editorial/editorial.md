@@ -75,7 +75,7 @@ $$K_i := \frac{(n_1+\ldots+n_m-1)!}{n_1! \ldots (n_i-1)! \ldots n_m!} = K\frac{n
 
 $$K_i = K_1\frac{n_i}{n_1},$$
 
-可以用 $O(n)$ 算好所有的 $K_i$。總共有 $O(n)$ 格要填，故時間複雜度為 $O(n^2)$。
+可以用 $O(n)$ 時間算好所有的 $K_i$。總共有 $O(n)$ 格要填，故時間複雜度為 $O(n^2)$。
 
 ### 更快的演算法
 
@@ -105,7 +105,7 @@ constexpr std::array<std::array<int, S>, R> get_binom(){
 constexpr std::array<std::array<int, S>, R> Binom = get_binom();
 ```
 
-因此字典序第 $k$ 小序列可以在 $O(\mu n)$ 時間得到，這裡 $\mu$ 是滿足 $\mu! \ge k$ 的最小整數。
+因此字典序第 $k$ 小序列可以在 $O(\mu n)$ 時間得到，這裡 $\mu$ 是滿足 $\mu! \ge k$ 的最小整數，以本題來說可以取 $\mu = 13$。
 
 ---
 
