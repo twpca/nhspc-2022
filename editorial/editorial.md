@@ -38,21 +38,21 @@ layout: default
 
 要把一個 Prüfer 序列還原成一棵樹，首先我們必須算出這棵樹的度數序列：
 
-> $n \gets |\mathbf{p}|+2$
-> $\mathbf{d} \gets \underbrace{1, 1, \ldots, 1}_{n\text{ copies}}$
-> **for** $p_i$ **in** $\mathbf{p}$ **do**
-> &nbsp;&nbsp;$d_i \gets d_i+1$
+> $n \gets |\mathbf{p}|+2$<br/>
+> $\mathbf{d} \gets \underbrace{1, 1, \ldots, 1}_{n\text{ copies}}$<br/>
+> **for** $p_i$ **in** $\mathbf{p}$ **do**<br/>
+> &nbsp;&nbsp;$d_i \gets d_i+1$<br/>
 > **end** **for**
 
 有了度數序列後，就能仿照 Prüfer 序列的生成步驟，逐步把邊加上去：
 
-> $T \gets n$ isolated vertices
-> **for** $p_i$ **in** $\mathbf{p}$ **do**
-> &nbsp;&nbsp;$u \gets$ the smallest index $i$ satisfying $d_i = 1$
-> &nbsp;&nbsp;Add edge $up_i$ to $T$
-> &nbsp;&nbsp;$d_{p_i} \gets d_{p_i}-1, d_u \gets d_u-1$
-> **end** **for**
-> $u, v \gets$ the remaining $2$ indices $i$ satisfying $d_i = 1$
+> $T \gets n$ isolated vertices<br/>
+> **for** $p_i$ **in** $\mathbf{p}$ **do**<br/>
+> &nbsp;&nbsp;$u \gets$ the smallest index $i$ satisfying $d_i = 1$<br/>
+> &nbsp;&nbsp;Add edge $up_i$ to $T$<br/>
+> &nbsp;&nbsp;$d_{p_i} \gets d_{p_i}-1, d_u \gets d_u-1$<br/>
+> **end** **for**<br/>
+> $u, v \gets$ the remaining $2$ indices $i$ satisfying $d_i = 1$<br/>
 > Add edge $uv$ to $T$
 
 執行這份虛擬碼後，$T$ 的 Prüfer 序列即為 $\mathbf{p}$。因此本題能簡化成這樣：
@@ -65,7 +65,7 @@ layout: default
 
 首先觀察滿足條件的序列個數為
 
-$$K := \frac{(n_1+n_2+\ldots+n_m)!}{n_1! n_2! \ldots n_m!}.$
+$$K := \frac{(n_1+n_2+\ldots+n_m)!}{n_1! n_2! \ldots n_m!}.$$
 
 如果輸入的 $k$ 大於 $K$，直接輸出 $-1$；否則，觀察以 $i$ 為開頭的序列個數為
 
@@ -105,7 +105,7 @@ constexpr std::array<std::array<int, S>, R> get_binom(){
 constexpr std::array<std::array<int, S>, R> Binom = get_binom();
 ```
 
-因此字典序第 $k$ 小序列可以在 $O(\kappa n)$ 時間得到，這裡 $\kappa$ 是滿足階乘為 $10^9$ 以上的最小整數。
+因此字典序第 $k$ 小序列可以在 $O(\mu n)$ 時間得到，這裡 $\mu$ 是滿足 $\mu! \ge 10^9$ 的最小整數。
 
 ---
 
