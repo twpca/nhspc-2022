@@ -41,16 +41,16 @@ layout: default
 > $n \gets |\mathbf{p}|+2$<br/>
 > $\mathbf{d} \gets \underbrace{1, 1, \ldots, 1}_{n\text{ copies}}$<br/>
 > **for** $p_i$ **in** $\mathbf{p}$ **do**<br/>
-> &nbsp;&nbsp;$d_i \gets d_i+1$<br/>
+> &nbsp;&nbsp;𝑑<sub>𝑖</sub> $\gets d_i+1$<br/>
 > **end** **for**
 
 有了度數序列後，就能仿照 Prüfer 序列的生成步驟，逐步把邊加上去：
 
 > $T \gets n$ isolated vertices<br/>
 > **for** $p_i$ **in** $\mathbf{p}$ **do**<br/>
-> &nbsp;&nbsp;$u \gets$ the smallest index $i$ satisfying $d_i = 1$<br/>
+> &nbsp;&nbsp;𝑢 $\gets$ the smallest index $i$ satisfying $d_i = 1$<br/>
 > &nbsp;&nbsp;Add edge $up_i$ to $T$<br/>
-> &nbsp;&nbsp;$d_{p_i} \gets d_{p_i}-1, d_u \gets d_u-1$<br/>
+> &nbsp;&nbsp;𝑑<sub>𝑝<sub>𝑖</sub></sub> $\gets d_{p_i}-1, d_u \gets d_u-1$<br/>
 > **end** **for**<br/>
 > $u, v \gets$ the remaining $2$ indices $i$ satisfying $d_i = 1$<br/>
 > Add edge $uv$ to $T$
