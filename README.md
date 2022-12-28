@@ -10,7 +10,7 @@
 - [solution](solution/): 尚未公開
 - [validator](validator/): 尚未公開
 - [generator](generator/): 尚未公開
-- [editorial](https://nhspc2022.twpca.org/editorial/editorial): 尚未公開
+- [editorial](https://nhspc2022.twpca.org/editorial/editorial): 部分公開
 - Release
   - [unit test 結果](https://nhspc2022.twpca.org/release/unittest.html) ([txt](release/unittest.txt)): 尚未公開
   - [賽前測試結果](https://nhspc2022.twpca.org/release/result.html): 尚未公開
