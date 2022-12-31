@@ -28,6 +28,34 @@ layout: default
 可以發現移動方式 b<sub>1</sub>s<sub>1</sub> b<sub>2</sub>s<sub>2</sub> 與 b<sub>1</sub>s<sub>2</sub> b<sub>2</sub>s<sub>1</sub>
 的移動總距離是一樣的。
 
+```graphviz
+digraph {
+  b1
+  b2
+  s1 [style=filled];
+  s2 [style=filled];
+  b1 -> b2 -> s1 -> s2 [style="invis"];
+  
+  {rank=min; b1 -> s1;}
+  {rank=min; b2 -> s2;}
+}
+```
+
+```graphviz
+digraph {
+  b1
+  b2
+  s1 [style=filled];
+  s2 [style=filled];
+  b1 -> b2 -> s1 -> s2 [style="invis"];
+  
+  {rank=min; b1 -> s2;}
+  {rank=min; b2 -> s1;}
+}
+```
+
+(b=腳踏車, s=空位)
+
 ----
 
 O(nm) DP：
@@ -38,6 +66,28 @@ O(nm) DP：
 其中轉移可以用紀錄前綴最小值的方式均攤 O(1)，
 並且 DP 表格可以只記錄兩列因此空間複雜度可以省略到 O(m)。
 
+```graphviz
+digraph {
+  s1 [style=filled];
+  s2 [style=filled];
+  b1;
+  b2;
+  s3 [style=filled];
+  s4 [style=filled];
+  b3;
+  b4;
+  s5 [style=filled];
+  s6 [style=filled];
+  {rank=min; s1 -> s2 -> b1 -> b2 -> s3 -> s4 -> b3 -> b4 -> s5 -> s6 [style="invis"]};
+  
+  b1 -> s2;
+  b2 -> s3;
+  b3 -> s5;
+  b4 -> s6;
+}
+```
+(腳踏車位置越大，移動到的位置越大)
+
 ----
 
 O(m log m) DP：
@@ -47,8 +97,62 @@ O(m log m) DP：
 （例如 b<sub>1</sub> < b<sub>2</sub> < s<sub>1</sub> < s<sub>2</sub>， b<sub>1</sub>s<sub>1</sub> b<sub>2</sub>s<sub>2</sub> 
 這個還法有部分相交，但可以換成 b<sub>1</sub>s<sub>2</sub> b<sub>2</sub>s<sub>1</sub>）
 
+```graphviz
+digraph {
+  s1 [style=filled];
+  s2 [style=filled];
+  b1;
+  b2;
+  s3 [style=filled];
+  s4 [style=filled];
+  b3;
+  b4;
+  s5 [style=filled];
+  s6 [style=filled];
+  {rank=min; s1 -> s2 -> b1 -> b2 -> s3 -> s4 -> b3 -> b4 -> s5 -> s6 [style="invis"]};
+  
+  b1 -> s2;
+  b2 -> s3;
+  b3 -> s6;
+  b4 -> s5;
+}
+```
+(一個不存在部分相交的例子)
+
 **性質2**： 若有一**不存在部分相交**的最佳解，在這個解裡腳踏車 b 還車到空位 s，則 b,s 之間所有空位一定都有停還來的腳踏車 ⇛
 很容易反證，如果 b, s 間存在一個空位沒還車，則我們可以把 b,s 間的所有腳踏車還的位置全部往空位的方向靠，可以構造出一組移動距離更小的解。
+
+```graphviz
+digraph {
+  b1;
+  b2;
+  s3 [style=filled];
+  s4 [style=filled];
+  s5 [style=filled];
+  {rank=min; b1 -> b2 -> s3 -> s4 -> s5 [style="invis"]};
+  
+  b1 -> s5;
+  b2 -> s4;
+}
+```
+(b1, s5 中間有一個空位未使用)
+
+```graphviz
+digraph {
+  b1;
+  b2;
+  s3 [style=filled];
+  s4 [style=filled];
+  s5 [style=filled];
+  {rank=min; b1 -> b2 -> s3 -> s4 -> s5 [style="invis"]};
+  
+  b1 -> s4;
+  b2 -> s3;
+}
+```
+(b1, b2歸還點都往左移填滿空格，可以構造出一個更好的解)
+
+**算法**：
 
 根據以上兩個性質，可以發現一輛腳踏車 b 只會有兩個可能被歸還的地方：
 
