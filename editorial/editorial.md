@@ -314,7 +314,21 @@ constexpr std::array<std::array<int, S>, R> Binom = get_binom();
 
 首先我們有 $2|E| = 5n \le 6n-12$，可推得有解的必要條件是 $n$ 為 $12$ 以上的偶數。對於 $n = 12, 16, 18, 20, 22, 26$，以下給出了構造法：
 
-![ussr_12](./tikz/ussr_12.svg)<img src="./tikz/ussr_12.svg">
+![ussr_12](../tikz/ussr_12.svg)
+
+![ussr_16](../tikz/ussr_16.svg)
+
+![ussr_18](../tikz/ussr_18.svg)
+
+![ussr_20](../tikz/ussr_20.svg)
+
+![ussr_22](../tikz/ussr_22.svg)
+
+![ussr_26](../tikz/ussr_26.svg)
+
+當 $n$ 為 $24$ 以上的偶數時，我們先構造 $12$ 與 $n-12$ 的圖，再將兩張圖「黏」起來就可得到。以下展示 $n=28=16+12$ 的構造方法：
+
+![ussr_28](../tikz/ussr_28.svg)
 
 ---
 
