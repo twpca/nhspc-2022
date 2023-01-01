@@ -1,0 +1,69 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\begin{document}
+   \begin{tikzpicture}
+      \begin{scope}
+         \def \Vertices {
+            1/0/0/$x_2$,
+            2/0/4/$x_1$,
+            3/1/2/$v_1$,
+            4/2/1/$v_2$,
+            5/2/3/$v_4$,
+            6/3/2/$v_3$,
+            7/4/0/$x_3$,
+            8/4/4/$x_4$}
+         \def \Edges {
+            1/2,
+            1/3,
+            1/4,
+            1/7,
+            2/3,
+            2/5,
+            2/8,
+            3/4,
+            3/5,
+            3/6,
+            4/5,
+            4/6,
+            4/7,
+            5/6,
+            5/8,
+            6/7,
+            6/8,
+            7/8}
+         \foreach \u / \x / \y / \n in \Vertices {
+            \node[draw, circle] (\u) at (\x, \y){\n};
+         }
+         \foreach \u / \v in \Edges {
+            \path[draw] (\u) -- (\v);
+         }
+      \end{scope}
+      \begin{scope}[xshift=8cm]
+         \def \Vu {
+            u1/1/2/$a_1$,
+            u2/2/1/$a_2$,
+            u3/4/4/$a_3$}
+         \def \Vv {
+            v1/0/4/$b_1$,
+            v2/2/3/$b_2$,
+            v3/3/2/$b_3$}
+         \foreach \no / \x / \y / \na in \Vu {
+            \node[draw, circle] (\no) at (\x, \y){\na};
+         }
+         \foreach \no / \x / \y / \na in \Vv {
+            \node[draw, circle, fill=black, text=white] (\no) at (\x, \y){\na};
+         }
+         \filldraw[black] (0, 0) circle (1pt);
+         \path[draw] (u1) -- (v1);
+         \path[draw] (u1) -- (v2);
+         \path[draw] (u1) -- (v3);
+         \path[draw] (u2) -- (0, 0);
+         \path[draw] (0, 0) -- (v1);
+         \path[draw] (u2) -- (v2);
+         \path[draw] (u2) -- (v3);
+         \path[draw] (u3) -- (v1);
+         \path[draw] (u3) -- (v2);
+         \path[draw] (u3) -- (v3);
+      \end{scope}
+      \draw[->] (5,2) -- (7,2);
+   \end{tikzpicture}
+\end{document}

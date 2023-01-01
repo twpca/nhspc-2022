@@ -1,0 +1,50 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\begin{document}
+   \begin{tikzpicture}
+      \def\R{3cm}
+      \def\RR{2.5981cm} % R cos(60°)
+      \def\RRR{3.4641cm} % R csc(60°)
+      \begin{scope}
+         \draw (0, 0) node[anchor=west]{\footnotesize$v$};
+         \draw (90: \R) node[anchor=south]{\footnotesize$u_1$};
+         \draw (150: \R) node[anchor=south east]{\footnotesize$u_2$};
+         \draw (210: \R) node[anchor=north east]{\footnotesize$u_3$};
+         \draw (270: \R) node[anchor=north]{\footnotesize$u_4$};
+         \draw (330: \R) node[anchor=north west]{\footnotesize$u_5$};
+         \draw (30: \R) node[anchor=south west]{\footnotesize$u_6$};
+         \foreach \x in {30, 90, ..., 330} {
+            \draw (0, 0) -- (\x: \R);
+         }
+         \draw (30: \R) \foreach \x in {90, 150, ..., 330} {
+            -- (\x: \R)
+         } -- cycle;
+         \filldraw[black] (0, 0) circle (1pt);
+         \filldraw[black] (90: \R) circle (1pt);
+         \filldraw[black] (210: \R) circle (1pt);
+         \draw[thick] (0, 0) -- (90: \R);
+         \draw[thick] (0, 0) -- (210: \R);
+         \draw[thick, dashed] (90: \R) arc(60: 240: \RR);
+      \end{scope}
+      \begin{scope}[xshift=8cm]
+         \draw (0, 0) node[anchor=west]{\footnotesize$v$};
+         \draw (90: \R) node[anchor=south]{\footnotesize$u_1$};
+         \draw (150: \R) node[anchor=south east]{\footnotesize$u_2$};
+         \draw (210: \R) node[anchor=north east]{\footnotesize$u_3$};
+         \draw (270: \R) node[anchor=north]{\footnotesize$u_4$};
+         \draw (330: \R) node[anchor=north west]{\footnotesize$u_5$};
+         \draw (30: \R) node[anchor=south west]{\footnotesize$u_6$};
+         \foreach \x in {30, 90, ..., 330} {
+            \draw (0, 0) -- (\x: \R);
+         }
+         \draw (30: \R) \foreach \x in {90, 150, ..., 330} {
+            -- (\x: \R)
+         } -- cycle;
+         \filldraw[black] (0, 0) circle (1pt);
+         \filldraw[black] (90: \R) circle (1pt);
+         \filldraw[black] (270: \R) circle (1pt);
+         \draw[thick] (0, 0) -- (90: \R);
+         \draw[thick] (0, 0) -- (270: \R);
+         \draw[thick, dashed] (90: \R) arc(120: -120: \RRR);
+      \end{scope}
+   \end{tikzpicture}
+\end{document}

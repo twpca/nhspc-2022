@@ -1,0 +1,111 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\begin{document}
+   \begin{tikzpicture}
+      \def\A{(0, 0)}
+      \def\B{(0, 5)}
+      \def\C{(1, 1)}
+      \def\D{(1, 2)}
+      \def\E{(1, 4)}
+      \def\F{(2, 1)}
+      \def\G{(2, 2)}
+      \def\H{(2, 3)}
+      \def\I{(2, 4)}
+      \def\J{(3, 1)}
+      \def\K{(3, 2)}
+      \def\L{(3, 3)}
+      \def\M{(3, 4)}
+      \def\N{(4, 1)}
+      \def\O{(4, 2)}
+      \def\P{(4, 3)}
+      \def\Q{(5, 3)}
+      \def\R{(6, 3)}
+      \def\S{(6, 5)}
+      \def\T{(7, 0)}
+      \def \Vertices {
+         \tiny$P_{ 1}$/\A/north east,
+         \tiny$P_{ 2}$/\B/south east,
+         \tiny$P_{ 3}$/\C/south east,
+         \tiny$P_{ 4}$/\D/east,
+         \tiny$P_{ 5}$/\E/north east,
+         \tiny$P_{ 6}$/\F/north,
+         \tiny$P_{ 7}$/\G/east,
+         \tiny$P_{ 8}$/\H/east,
+         \tiny$P_{ 9}$/\I/south,
+         \tiny$P_{10}$/\J/north,
+         \tiny$P_{11}$/\K/south east,
+         \tiny$P_{12}$/\L/south,
+         \tiny$P_{13}$/\M/north east,
+         \tiny$P_{14}$/\N/west,
+         \tiny$P_{15}$/\O/south east,
+         \tiny$P_{16}$/\P/north east,
+         \tiny$P_{17}$/\Q/north west,
+         \tiny$P_{18}$/\R/north west,
+         \tiny$P_{19}$/\S/south west,
+         \tiny$P_{20}$/\T/north west}
+      \def \Edges {
+         \A/\B,
+         \A/\C,
+         \A/\D,
+         \A/\F,
+         \A/\T,
+         \B/\D,
+         \B/\E,
+         \B/\I,
+         \B/\S,
+         \C/\D,
+         \C/\F,
+         \C/\G,
+         \C/\H,
+         \D/\E,
+         \D/\H,
+         \E/\H,
+         \E/\I,
+         \E/\L,
+         \F/\G,
+         \F/\J,
+         \F/\K,
+         \G/\H,
+         \G/\K,
+         \G/\L,
+         \H/\L,
+         \I/\M,
+         \I/\P,
+         \I/\S,
+         \J/\K,
+         \J/\N,
+         \J/\O,
+         \J/\T,
+         \K/\L,
+         \K/\O,
+         \L/\P,
+         \M/\P,
+         \M/\Q,
+         \M/\R,
+         \M/\S,
+         \N/\O,
+         \N/\Q,
+         \N/\R,
+         \N/\T,
+         \O/\P,
+         \O/\Q,
+         \P/\Q,
+         \Q/\R,
+         \R/\S,
+         \R/\T,
+         \S/\T}
+      \foreach \i in {1, ..., 7} {
+         \draw [very thin, gray] (\i, -0.5) -- (\i, 5.5);
+      }
+      \foreach \i in {1, ..., 5} {
+         \draw [very thin, gray] (-0.5, \i) -- (7.5, \i);
+      }
+      \draw [-stealth, thin, black] (-0.5, 0) -- (7.5, 0) node[anchor=west]{\small$x$};
+      \draw [-stealth, thin, black] (0, -0.5) -- (0, 5.5) node[anchor=south]{\small$y$};
+      \foreach \pp / \qq in \Edges {
+         \path[draw] \pp -- \qq;
+      }
+      \foreach \fmt / \pp / \pos in \Vertices {
+         \filldraw[very thin] \pp circle (1pt) node[anchor=\pos]{\fmt};
+      }
+   \end{tikzpicture}
+\end{document}

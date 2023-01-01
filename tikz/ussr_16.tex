@@ -1,0 +1,93 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\begin{document}
+   \begin{tikzpicture}
+      \def\A{(0, 0)}
+      \def\B{(1, 1)}
+      \def\C{(2, 1)}
+      \def\D{(2, 2)}
+      \def\E{(2, 3)}
+      \def\F{(2, 4)}
+      \def\G{(3, 1)}
+      \def\H{(3, 2)}
+      \def\I{(3, 3)}
+      \def\J{(3, 4)}
+      \def\K{(3, 5)}
+      \def\L{(3, 7)}
+      \def\M{(4, 1)}
+      \def\N{(4, 2)}
+      \def\O{(5, 1)}
+      \def\P{(6, 0)}
+      \def \Vertices {
+         \tiny$P_{ 1}$/\A/north east,
+         \tiny$P_{ 2}$/\B/south east,
+         \tiny$P_{ 3}$/\C/north,
+         \tiny$P_{ 4}$/\D/south west,
+         \tiny$P_{ 5}$/\E/south,
+         \tiny$P_{ 6}$/\F/north west,
+         \tiny$P_{ 7}$/\G/south west,
+         \tiny$P_{ 8}$/\H/north east,
+         \tiny$P_{ 9}$/\I/north east,
+         \tiny$P_{10}$/\J/south east,
+         \tiny$P_{11}$/\K/south east,
+         \tiny$P_{12}$/\L/south,
+         \tiny$P_{13}$/\M/north west,
+         \tiny$P_{14}$/\N/south west,
+         \tiny$P_{15}$/\O/south west,
+         \tiny$P_{16}$/\P/north west}
+      \def \Edges {
+         \A/\B,
+         \A/\C,
+         \A/\F,
+         \A/\L,
+         \A/\P,
+         \B/\C,
+         \B/\D,
+         \B/\E,
+         \B/\F,
+         \C/\D,
+         \C/\G,
+         \C/\P,
+         \D/\E,
+         \D/\G,
+         \D/\H,
+         \E/\H,
+         \E/\I,
+         \E/\J,
+         \F/\J,
+         \F/\K,
+         \F/\L,
+         \G/\H,
+         \G/\M,
+         \G/\P,
+         \H/\I,
+         \H/\M,
+         \I/\J,
+         \I/\M,
+         \I/\N,
+         \J/\K,
+         \J/\N,
+         \K/\L,
+         \K/\N,
+         \K/\O,
+         \L/\O,
+         \L/\P,
+         \M/\N,
+         \M/\O,
+         \N/\O,
+         \O/\P}
+      \foreach \i in {1, ..., 6} {
+         \draw [very thin, gray] (\i, -0.5) -- (\i, 7.5);
+      }
+      \foreach \i in {1, ..., 7} {
+         \draw [very thin, gray] (-0.5, \i) -- (6.5, \i);
+      }
+      \draw [-stealth, thin, black] (-0.5, 0) -- (6.5, 0) node[anchor=west]{\small$x$};
+      \draw [-stealth, thin, black] (0, -0.5) -- (0, 7.5) node[anchor=south]{\small$y$};
+      \foreach \pp / \qq in \Edges {
+         \path[draw] \pp -- \qq;
+      }
+      \foreach \fmt / \pp / \pos in \Vertices {
+         \filldraw[very thin] \pp circle (1pt) node[anchor=\pos]{\fmt};
+      }
+   \end{tikzpicture}
+\end{document}

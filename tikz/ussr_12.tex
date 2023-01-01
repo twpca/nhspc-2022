@@ -1,0 +1,75 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\begin{document}
+   \begin{tikzpicture}
+      \def\A{(0, 0)}
+      \def\B{(2, 2)}
+      \def\C{(3, 1)}
+      \def\D{(3, 2)}
+      \def\E{(3, 3)}
+      \def\F{(4, 1)}
+      \def\G{(4, 2)}
+      \def\H{(4, 3)}
+      \def\I{(4, 4)}
+      \def\J{(4, 5)}
+      \def\K{(5, 1)}
+      \def\L{(6, 0)}
+      \def \Vertices {
+         \tiny$P_1$/\A/north east,
+         \tiny$P_2$/\B/north,
+         \tiny$P_3$/\C/north east,
+         \tiny$P_4$/\D/north east,
+         \tiny$P_5$/\E/north west,
+         \tiny$P_6$/\F/north,
+         \tiny$P_7$/\G/south east,
+         \tiny$P_8$/\H/south east,
+         \tiny$P_9$/\I/south east,
+         \tiny$P_{10}$/\J/south,
+         \tiny$P_{11}$/\K/south west,
+         \tiny$P_{12}$/\L/north west}
+      \def \Edges {
+         \A/\B,
+         \A/\C,
+         \A/\F,
+         \A/\J,
+         \A/\L,
+         \B/\C,
+         \B/\D,
+         \B/\E,
+         \B/\J,
+         \C/\D,
+         \C/\F,
+         \C/\G,
+         \D/\E,
+         \D/\G,
+         \D/\H,
+         \E/\H,
+         \E/\I,
+         \E/\J,
+         \F/\G,
+         \F/\K,
+         \F/\L,
+         \G/\H,
+         \G/\K,
+         \H/\I,
+         \H/\K,
+         \I/\J,
+         \I/\K,
+         \I/\L,
+         \J/\L,
+         \K/\L}
+      \foreach \i in {1, ..., 6} {
+         \draw [very thin,gray] (\i, -0.5) -- (\i, 5.5);
+      }
+      \foreach \i in {1, ..., 5} {
+         \draw [very thin,gray] (-0.5,\i) -- (6.5,\i);
+      }
+      \draw [-stealth,thin,black] (-0.5, 0) -- (6.5, 0) node[anchor=west]{\small$x$};
+      \draw [-stealth,thin,black] (0, -0.5) -- (0, 5.5) node[anchor=south]{\small$y$};
+      \foreach \pp / \qq in \Edges {
+         \path[draw] \pp -- \qq;
+      }
+      \foreach \fmt / \pp / \pos in \Vertices {
+         \filldraw[very thin] \pp circle (1pt) node[anchor=\pos]{\fmt};
+      }
+   \end{tikzpicture}
+\end{document}

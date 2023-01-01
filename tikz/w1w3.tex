@@ -1,0 +1,36 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\begin{document}
+   \begin{tikzpicture}
+      \def\R{3cm}
+      \begin{scope}
+         \draw (0, 0) node[anchor=west]{\footnotesize$v$};
+         \draw (90: \R) node[anchor=south]{\footnotesize$u_1$};
+         \draw (150: \R) node[anchor=south]{\footnotesize$u_2$};
+         \draw (210: \R) node[anchor=north]{\footnotesize$u_3$};
+         \draw (270: \R) node[anchor=north]{\footnotesize$u_4$};
+         \draw (330: \R) node[anchor=north west]{\footnotesize$u_5$};
+         \draw (30: \R) node[anchor=south west]{\footnotesize$u_6$};
+         \foreach \x in {30, 90, ..., 330} {
+            \draw (0, 0) -- (\x: \R);
+         }
+         \draw (30: \R) \foreach \x in {90, 150, ..., 330} {
+            -- (\x: \R)
+         } -- cycle;
+         \draw (180: \R) node[anchor=east]{\footnotesize$w_2$};
+         \draw (150: 2*\R) node[anchor=south east]{\footnotesize$w_1$};
+         \draw (210: 2*\R) node[anchor=north east]{\footnotesize$w_3$};
+         \draw (150: \R) -- (180: \R);
+         \draw (180: \R) -- (210: \R);
+         \draw[thick] (150: \R) -- (210: \R);
+         \draw[thick] (150: \R) -- (150: 2*\R);
+         \draw[thick] (150: 2*\R) -- (210: 2*\R);
+         \draw[thick] (210: 2*\R) -- (210: \R);
+         \draw (150: 2*\R) -- (90: \R);
+         \draw (210: 2*\R) -- (270: \R);
+         \filldraw[black] (150: \R) circle (1pt);
+         \filldraw[black] (150: 2*\R) circle (1pt);
+         \filldraw[black] (210: 2*\R) circle (1pt);
+         \filldraw[black] (210: \R) circle (1pt);
+      \end{scope}
+   \end{tikzpicture}
+\end{document}
