@@ -308,7 +308,7 @@ $$|E| \le 3|V|-6,$$
 
 ### 情況 3：$k = 3$
 
-由於 $nk$ 必須是偶數，有解的必要條件是 $n$ 為 $4$ 以上的偶數，而仔細觀察能發現這其實也是充分條件。當 $n = 4$ 時，範例測試 $3$ 給出了同構於[完全圖](https://en.wikipedia.org/wiki/Complete_graph) $K_4$ 的構造法。當 $n \ge 6$ 時，我們寫 $n = 2m$。可以構造兩個圈 $C_m$，一內一外，設之為 $A = (\{a_1, \ldots, a_m\}, \{a_1a_2, \ldots, a_ma_1\})$ 與 $B = (\{b_1, \ldots, b_m\}, \{b_1b_2, \ldots, b_mb_1\})$，並把對應的點 $a_ib_i$ 連起來，就得到了符合題目要求的解。
+由於 $nk$ 必須是偶數，有解的必要條件是 $n$ 為 $4$ 以上的偶數，而仔細觀察能發現這其實也是充分條件。當 $n = 4$ 時，範例測試 $3$ 給出了同構於[完全圖](https://en.wikipedia.org/wiki/Complete_graph) $K_4$ 的構造法。當 $n \ge 6$ 時，我們寫 $n = 2m$。可以構造兩個圈 $C_m$，一內一外，設之為 $A = (\\{a_1, \ldots, a_m\\}, \\{a_1a_2, \ldots, a_ma_1\\})$ 與 $B = (\\{b_1, \ldots, b_m\\}, \\{b_1b_2, \ldots, b_mb_1\\})$，並把對應的點 $a_ib_i$ 連起來，就得到了符合題目要求的解。
 
 ### 情況 4：$k = 4$
 
@@ -320,7 +320,7 @@ $$|E| = 2n \le 3n-6,$$
 
 當 $n$ 為 $9$ 以上的奇數時，我們寫 $n = 2m+1$，其中 $m \ge 4$。先構造好 $n-1$ 個點的連通 $4$-正則平面圖，並在 $A$ 的中心加入一個點 $u$。拔掉 $a_1a_2$ 與 $a_3a_4$ 兩條邊，並加入 $ua_1, ua_2, ua_3, ua_4$ 這 $4$ 條邊，就得到了符合題目要求的解。
 
-我們說明 $n=7$ 無解。假定 $G$ 為一個有 $7$ 個頂點的 $4$-正則平面圖。隨意取兩個不相鄰的點 $v_1, v_2$，則由 $\deg(v_1) = \deg(v_2) = 4$，可知 $v_1$ 與 $v_2$ 的共同鄰居至少有 $3$ 個。若 $v_1$ 與 $v_2$ 的共同鄰居有 $4$ 個，設之為 $u_1, u_2, u_3, u_4$，則剩下不與 $v_1$ 與 $v_2$ 相鄰的那個點 $v_3$ 的鄰居也只能是 $u_1, u_2, u_3, u_4$，但此時 $\{v_1, v_2, v_3\}$ 與 $\{u_1, u_2, u_3\}$ 形成了一個[完全二分圖](https://en.wikipedia.org/wiki/Complete_bipartite_graph) $K_{3, 3}$，與 $G$ 為平面圖矛盾。
+我們說明 $n=7$ 無解。假定 $G$ 為一個有 $7$ 個頂點的 $4$-正則平面圖。隨意取兩個不相鄰的點 $v_1, v_2$，則由 $\deg(v_1) = \deg(v_2) = 4$，可知 $v_1$ 與 $v_2$ 的共同鄰居至少有 $3$ 個。若 $v_1$ 與 $v_2$ 的共同鄰居有 $4$ 個，設之為 $u_1, u_2, u_3, u_4$，則剩下不與 $v_1$ 與 $v_2$ 相鄰的那個點 $v_3$ 的鄰居也只能是 $u_1, u_2, u_3, u_4$，但此時 $v_1, v_2, v_3$ 與 $u_1, u_2, u_3$ 形成了一個[完全二分圖](https://en.wikipedia.org/wiki/Complete_bipartite_graph) $K_{3, 3}$，與 $G$ 為平面圖矛盾。
 
 所以 $v_1$ 與 $v_2$ 的共同鄰居只能是 $3$ 個，不妨設 $v_1$ 與 $v_2$ 的共同鄰居為 $v_3, v_4, v_5$，而 $v_1$ 與 $v_6$ 相鄰，$v_2$ 與 $v_7$ 相鄰。若 $v_6$ 與 $v_7$ 不相鄰，則 $v_6$ 和 $v_7$ 也與 $v_3, v_4, v_5$ 相鄰，此時 $v_1, v_2, v_6$ 與 $v_3, v_4, v_5$ 形成了 $K_{3, 3}$，與 $G$ 為平面圖矛盾。
 
@@ -382,11 +382,11 @@ $$|V_\text{in}(x_1x_2x_3)| \ge 3.$$
 
 #### 情況 1：$V_\text{in}(x_1x_2x_3)$ 包含 $3$ 個頂點
 
-由於對任意 $v \in V(G)$ 皆有 $\deg(v) \ge 5$，我們發現[導出子圖](https://en.wikipedia.org/wiki/Induced_subgraph) (induced subgraph) $G[V_\text{in}(x_1x_2x_3)\cup\{x_1, x_2, x_3\}] \cong K_6$，包含了 $K_5$ 結構，與 $G$ 為平面圖矛盾。
+由於對任意 $v \in V(G)$ 皆有 $\deg(v) \ge 5$，我們發現[導出子圖](https://en.wikipedia.org/wiki/Induced_subgraph) (induced subgraph) $G[V_\text{in}(x_1x_2x_3)\cup\\{x_1, x_2, x_3\\}] \cong K_6$，包含了 $K_5$ 結構，與 $G$ 為平面圖矛盾。
 
 #### 情況 2：$V_\text{in}(x_1x_2x_3)$ 包含 $4$ 個頂點
 
-設 $x_1x_2, x_2x_3, x_3x_1$ 向內的面分別為 $x_1x_2v_1, x_2x_3v_2, x_3x_1v_3$。首先我們有 $v_1, v_2, v_3$ 兩兩相異（否則 $x_1x_2x_3$ 就分成 $3$ 個三角形，但其中一個包含 $3$ 個以下的頂點），設 $V_\text{in}(x_1x_2x_3) = \{v_1, v_2, v_3, v_4\}$ 以及 $H := G[V_\text{in}(x_1x_2x_3)\cup\{x_1, x_2, x_3\}]$。[握手引理](https://en.wikipedia.org/wiki/Handshaking_lemma) (handshaking lemma) 告訴我們
+設 $x_1x_2, x_2x_3, x_3x_1$ 向內的面分別為 $x_1x_2v_1, x_2x_3v_2, x_3x_1v_3$。首先我們有 $v_1, v_2, v_3$ 兩兩相異（否則 $x_1x_2x_3$ 就分成 $3$ 個三角形，但其中一個包含 $3$ 個以下的頂點），設 $V_\text{in}(x_1x_2x_3) = \\{v_1, v_2, v_3, v_4\\}$ 以及 $H := G[V_\text{in}(x_1x_2x_3)\cup\\{x_1, x_2, x_3\\}]$。[握手引理](https://en.wikipedia.org/wiki/Handshaking_lemma) (handshaking lemma) 告訴我們
 
 $$2|E(H)| \ge \underbrace{3 \cdot 4}_{x_i\text{'s}} + \underbrace{4 \cdot 5}_{v_i\text{'s}} = 32 \quad \Rightarrow \quad |E(H)| \ge 16.$$
 
@@ -396,7 +396,7 @@ $$|E(H)| \le 3|V(H)|-6 = 15.\quad(\to\gets)$$
 
 #### 情況 3：$V_\text{in}(x_1x_2x_3)$ 包含 $5$ 個頂點
 
-設 $V_\text{in}(x_1x_2x_3) = \{v_1, v_2, v_3, v_4, v_5\}$，其中 $x_ix_{i+1}$ 向內的面為 $x_ix_{i+1}v_i$（這裡定義 $x_4 = x_1$）。握手引理告訴我們
+設 $V_\text{in}(x_1x_2x_3) = \\{v_1, v_2, v_3, v_4, v_5\\}$，其中 $x_ix_{i+1}$ 向內的面為 $x_ix_{i+1}v_i$（這裡定義 $x_4 = x_1$）。握手引理告訴我們
 
 $$2|E(H)| \ge \underbrace{3 \cdot 4}_{x_i\text{'s}} + \underbrace{5 \cdot 5}_{v_i\text{'s}} = 37 \quad \Rightarrow \quad |E(H)| \ge 19.$$
 
