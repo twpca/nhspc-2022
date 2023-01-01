@@ -350,6 +350,60 @@ $$2|E| = 5n \le 6n-12,$$
 
 ![ussr_28](../tikz/ussr_28.svg)
 
+我們用反證法證明 $n=14$ 時無解。假定存在 $5$-正則平面圖 $G_0$ 且 $G_0$ 的頂點數為 $14$，不妨設 $G_0$ 已經嵌入(embed) $\mathbb{R}^2$ 裡了。首先觀察到
+
+$$|E(G_0)| = \frac{1}{2} \cdot 5 \cdot 14 = 35.$$
+
+另一方面，平面圖的邊數上限給出
+
+$$3|V(G_0)| - 6 = 36,$$
+
+我們可以得到以下的引理：
+
+#### [引理 1] $G_0$ 恰包含一個 $4$ 邊組成的面 (face)。
+
+我們加一條邊在 $G_0$ 唯一的 $4$ 邊組成的面，得到新的平面圖 $G$。$G$ 會滿足以下的性質：
+
+1. $G$ 有 $12$ 個點的度數為 $5$ 且有 $2$ 個點的度數為 $6$。
+1. $G$ 上度數為 $6$ 的兩個點相鄰。
+1. $G$ 的每個面都是三角形，且每條邊恰好夾在兩個面中間。
+
+一個平面圖上的簡單環 $C$ 會將這個平面圖的點集合切成三塊：$C$ 內部的點 $V_\text{in}(C)$、$C$ 外部的點 $V_\text{out}(C)$、以及 $C$ 上的點 $V(C)$。我們有以下的兩個引理：
+
+#### [引理 2] $G$ 的每個三角形都是面。
+
+假定引理為假，即 $G$ 有個三角形 $x_1x_2x_3$ 滿足 $V_\text{in}(x_1x_2x_3)$ 與 $V_\text{out}(x_1x_2x_3)$ 皆非空。由於
+
+$$|V_\text{in}(x_1x_2x_3)| + |V_\text{out}(x_1x_2x_3)| = 11,$$
+
+我們可以假設 $V_\text{in}(x_1x_2x_3)$ 的個數不超過 $5$。另一方面，由於 $G$ 裡所有點的度數皆至少為 $5$，必須有
+
+$$|V_\text{in}(x_1x_2x_3)| \ge 3.$$
+
+#### 情況 1：$V_\text{in}(x_1x_2x_3)$ 包含 $3$ 個頂點
+
+由於對任意 $v \in V(G)$ 皆有 $\deg(v) \ge 5$，我們發現[導出子圖](https://en.wikipedia.org/wiki/Induced_subgraph) (induced subgraph) $G[V_\text{in}(x_1x_2x_3)\cup\{x_1, x_2, x_3\}] \cong K_6$，包含了 $K_5$ 結構，與 $G$ 為平面圖矛盾。
+
+#### 情況 2：$V_\text{in}(x_1x_2x_3)$ 包含 $4$ 個頂點
+
+設 $x_1x_2, x_2x_3, x_3x_1$ 向內的面分別為 $x_1x_2v_1, x_2x_3v_2, x_3x_1v_3$。首先我們有 $v_1, v_2, v_3$ 兩兩相異（否則 $x_1x_2x_3$ 就分成 $3$ 個三角形，但其中一個包含 $3$ 個以下的頂點），設 $V_\text{in}(x_1x_2x_3) = \{v_1, v_2, v_3, v_4\}$ 以及 $H := G[V_\text{in}(x_1x_2x_3)\cup\{x_1, x_2, x_3\}]$。[握手引理](https://en.wikipedia.org/wiki/Handshaking_lemma) (handshaking lemma) 告訴我們
+
+$$2|E(H)| \ge \underbrace{3 \cdot 4}_{x_i\text{'s}} + \underbrace{4 \cdot 5}_{v_i\text{'s}} = 32 \quad \Rightarrow \quad |E(H)| \ge 16.$$
+
+另一方面，由於 $H$ 是平面圖，我們有
+
+$$|E(H)| \le 3|V(H)|-6 = 15.\quad(\to\gets)$$
+
+#### 情況 3：$V_\text{in}(x_1x_2x_3)$ 包含 $5$ 個頂點
+
+設 $V_\text{in}(x_1x_2x_3) = \{v_1, v_2, v_3, v_4, v_5\}$，其中 $x_ix_{i+1}$ 向內的面為 $x_ix_{i+1}v_i$（這裡定義 $x_4 = x_1$）。握手引理告訴我們
+
+$$2|E(H)| \ge \underbrace{3 \cdot 4}_{x_i\text{'s}} + \underbrace{5 \cdot 5}_{v_i\text{'s}} = 37 \quad \Rightarrow \quad |E(H)| \ge 19.$$
+
+另一方面，由於 $H$ 是平面圖，我們有
+
+$$|E(H)| \le 3|V(H)|-6 = 18.\quad(\to\gets)\tag*{$\blacksquare$}$$
+
 ---
 
 ## I - xmas
