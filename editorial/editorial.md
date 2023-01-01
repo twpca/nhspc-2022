@@ -284,7 +284,19 @@ constexpr std::array<std::array<int, S>, R> Binom = get_binom();
 
 ## H - ussr
 
-本題要找一個 $n$ 個點的連通 $k$-[正則](https://en.wikipedia.org/wiki/Regular_graph)[平面](https://en.wikipedia.org/wiki/Planar_graph)圖，其中每個頂點都是整數點，且每條邊都是直線線段。觀察 $\lvert E\rvert = \frac{k}{2}n$，而平面圖只要 $\lvert V\rvert \ge 3$ 就有 $\lvert E\rvert \le 3\lvert V\rvert-6$，可知 $k \ge 6$ 必定無解。以下我們對 $k \le 5$ 做逐一說明。
+本題要找一個 $n$ 個點的連通 $k$-[正則](https://en.wikipedia.org/wiki/Regular_graph)[平面](https://en.wikipedia.org/wiki/Planar_graph)圖，其中每個頂點都是整數點，且每條邊都是直線線段。觀察
+
+$$|E| = \frac{k}{2}n,$$
+
+而平面圖只要
+
+$$|V| \ge 3,$$
+
+就有
+
+$$|E| \le 3|V|-6,$$
+
+可知 $k \ge 6$ 必定無解。以下我們對 $k \le 5$ 做逐一說明。
 
 ### 情況 1：$k = 1$
 
@@ -300,7 +312,11 @@ constexpr std::array<std::array<int, S>, R> Binom = get_binom();
 
 ### 情況 4：$k = 4$
 
-首先我們有 $|E| = 2n \le 3n-6$，可推得 $n \ge 6$。對於 $6$ 以上的偶數，我們寫 $n = 2m$，仿照 $k = 3$ 的情況，一樣先構造連通 $3$-正則平面圖，再把 $a_1b_2, a_2b_3, \ldots, a_mb_1$ 連起來，就得到了符合題目要求的解。
+首先我們有
+
+$$|E| = 2n \le 3n-6,$$
+
+可推得 $n \ge 6$。對於 $6$ 以上的偶數，我們寫 $n = 2m$，仿照 $k = 3$ 的情況，一樣先構造連通 $3$-正則平面圖，再把 $a_1b_2, a_2b_3, \ldots, a_mb_1$ 連起來，就得到了符合題目要求的解。
 
 當 $n$ 為 $9$ 以上的奇數時，我們寫 $n = 2m+1$，其中 $m \ge 4$。先構造好 $n-1$ 個點的連通 $4$-正則平面圖，並在 $A$ 的中心加入一個點 $u$。拔掉 $a_1a_2$ 與 $a_3a_4$ 兩條邊，並加入 $ua_1, ua_2, ua_3, ua_4$ 這 $4$ 條邊，就得到了符合題目要求的解。
 
@@ -312,7 +328,11 @@ constexpr std::array<std::array<int, S>, R> Binom = get_binom();
 
 ### 情況 5：$k = 5$
 
-首先我們有 $2|E| = 5n \le 6n-12$，可推得有解的必要條件是 $n$ 為 $12$ 以上的偶數。對於 $n = 12, 16, 18, 20, 22, 26$，以下給出了構造法：
+首先我們有
+
+$$2|E| = 5n \le 6n-12,$$
+
+可推得有解的必要條件是 $n$ 為 $12$ 以上的偶數。對於 $n = 12, 16, 18, 20, 22, 26$，以下給出了構造法：
 
 ![ussr_12](../tikz/ussr_12.svg)
 
