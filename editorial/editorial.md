@@ -423,7 +423,7 @@ $H$ 必定有個子圖如下，包含了 $K_{3, 3}$，與 $G$ 為平面圖矛盾
 觀察
 
 $$\begin{split}
-   |E(H)| &= \underbrace{|E(G[V(Q)])|}_\text{outer part} + \underbrace{\sum_{v \in V_\text{in}(Q)} \deg_G(v)}_\text{#\\{edges connecting inner and outer parts\\} + 2(inner part)} - \underbrace{|E(G[V_\text{in}(Q)])|}_\text{inner part}\\
+   |E(H)| &= \underbrace{|E(G[V(Q)])|}_\text{outer part} + \underbrace{\sum_{v \in V_\text{in}(Q)} \deg_G(v)}_\text{#\{edges connecting inner and outer parts\} + 2(inner part)} - \underbrace{|E(G[V_\text{in}(Q)])|}_\text{inner part}\\
    &\ge 4 + 3 \cdot 5 - 3 = 16.
 \end{split}$$
 
