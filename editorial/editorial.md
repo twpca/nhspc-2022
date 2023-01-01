@@ -398,7 +398,7 @@ $$2|E(H)| \ge \underbrace{3 \cdot 4}_{x_i\text{'s}} + \underbrace{5 \cdot 5}_{v_
 
 另一方面，由於 $H$ 是平面圖，我們有
 
-$$|E(H)| \le 3|V(H)|-6 = 18.\quad(\to\gets)\tag*{$\blacksquare$}$$
+$$|E(H)| \le 3|V(H)|-6 = 18.\quad(\to\gets)$$
 
 #### [引理 3] $G$ 的每個長度為 $4$ 的簡單環 $Q$ 必有 $V_\text{in}(Q)$ 為空或 $V_\text{out}(Q)$ 為空。
 
@@ -445,7 +445,7 @@ $$|E(H)| \le 3|V(H)|-6 = 15.\quad(\to\gets)$$
 
 ![vinq_5](../tikz/vinq_5.svg)
 
-此子圖包含了 $K_{3, 3}$ 的細分圖，與 $G$ 為平面圖矛盾。$\tag*{$\blacksquare$}$
+此子圖包含了 $K_{3, 3}$ 的細分圖，與 $G$ 為平面圖矛盾。
 
 有了上述的兩個引理我們準備完成證明了。設 $v \in V(G)$ 且 $\deg(v) = 6$，並設 $v$ 的鄰居們為 $U := \\{u_1, u_2, \ldots, u_6\\}$，其中 $u_i$ 與 $u_{i+1}$ 相鄰（這裡 $u_7 := u_1$）。由引理 2 得知 $u_1$ 不能與 $u_3$ 或 $u_4$ 相鄰，故 $G[U] \cong C_6$。
 
