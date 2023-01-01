@@ -284,7 +284,7 @@ constexpr std::array<std::array<int, S>, R> Binom = get_binom();
 
 ## H - ussr
 
-本題要找一個 $n$ 個點的連通 $k$-[正則](https://en.wikipedia.org/wiki/Regular_graph)[平面](https://en.wikipedia.org/wiki/Planar_graph)圖，其中每個頂點都是整數點，且每條邊都是直線線段。觀察 $|E| = \frac{k}{2}n$，而平面圖只要 $|V| \ge 3$ 就有 $|E| \le 3|V|-6$，可知 $k \ge 6$ 必定無解。以下我們對 $k \le 5$ 做逐一說明。
+本題要找一個 $n$ 個點的連通 $k$-[正則](https://en.wikipedia.org/wiki/Regular_graph)[平面](https://en.wikipedia.org/wiki/Planar_graph)圖，其中每個頂點都是整數點，且每條邊都是直線線段。觀察 $\lvert E\rvert = \frac{k}{2}n$，而平面圖只要 $\lvert V\rvert \ge 3$ 就有 $\lvert E\rvert \le 3\lvert V\rvert-6$，可知 $k \ge 6$ 必定無解。以下我們對 $k \le 5$ 做逐一說明。
 
 ### 情況 1：$k = 1$
 
