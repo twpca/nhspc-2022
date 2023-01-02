@@ -214,25 +214,25 @@ O(n<sup>2</sup>) 做法：
 > $n \gets |\mathbf{p}|+2$<br/>
 > $\mathbf{d} \gets \underbrace{1, 1, \ldots, 1}_{n\text{ copies}}$<br/>
 > **for** $p_i$ **in** $\mathbf{p}$ **do**<br/>
-> &nbsp;&nbsp;𝑑<sub>𝑖</sub> $\gets d_i+1$<br/>
+> &nbsp;&nbsp;$d_i \gets d_i+1$<br/>
 > **end** **for**
 
 有了度數序列後，就能仿照 Prüfer 序列的生成步驟，逐步把邊加上去：
 
 > $T \gets n$ isolated vertices<br/>
 > **for** $p_i$ **in** $\mathbf{p}$ **do**<br/>
-> &nbsp;&nbsp;𝑢 $\gets$ the smallest index $i$ satisfying $d_i = 1$<br/>
+> &nbsp;&nbsp;$u \gets$ the smallest index $i$ satisfying $d_i = 1$<br/>
 > &nbsp;&nbsp;Add edge $up_i$ to $T$<br/>
-> &nbsp;&nbsp;𝑑<sub>𝑝<sub>𝑖</sub></sub> $\gets d_{p_i}-1, d_u \gets d_u-1$<br/>
+> &nbsp;&nbsp;$d_{p_i} \gets d_{p_i}-1, d_u \gets d_u-1$<br/>
 > **end** **for**<br/>
 > $u, v \gets$ the remaining $2$ indices $i$ satisfying $d_i = 1$<br/>
 > Add edge $uv$ to $T$
 
-執行這份虛擬碼後，𝑇 的 Prüfer 序列即為 $\mathbf{p}$。因此本題能簡化成這樣：
+執行這份虛擬碼後，$T$ 的 Prüfer 序列即為 $\mathbf{p}$。因此本題能簡化成這樣：
 
 > 給定一個序列 $d_1, d_2, \ldots, d_n$，請求出 $i$ 恰出現 $d_i-1$ 次的字典序第 $k$ 小序列。
 
-為了方便，以下假定我們想求 $i$ 恰出現 $n_i$ 次的第 $k$ 小序列，其中 $1 \le i \le m, n_1+n_2+\ldots+n_m = n-2$，且每個 $i$ 均有 $n_i > 0$。
+為了方便，以下假定我們想求 $i$ 恰出現 $n_i$ 次的第 $k$ 小序列，其中 $1 \le i \le m$，$n_1+n_2+\ldots+n_m = n-2$，且每個 $i$ 均有 $n_i > 0$。
 
 ### $O(n^2)$ 演算法
 
