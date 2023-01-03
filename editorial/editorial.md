@@ -475,7 +475,7 @@ $$|E(H)| \le 3|V(H)|-6 = 15.\quad(\to\gets)$$
 
 ## I - xmas
 
-題目問的是找出一個字典序最小的非負整數解 $(\zeta_1, \zeta_2, \ldots, \zeta_n)$，滿足對任意 $k = 1, 2, \ldots, n$，在 $\operatorname{mod}m$ 下都有
+題目問的是找出一個字典序最小的非負整數解 $(\zeta_1, \zeta_2, \ldots, \zeta_n)$，滿足在 $\operatorname{mod}m$ 下有
 
 $$\begin{cases}\zeta_1 &= b_1-a_1\\\zeta_1+\zeta_2 &= b_2-a_2\\\zeta_1+\zeta_3 &= b_3-a_3\\\zeta_1+\zeta_2+\zeta_4 &= b_4-a_4\\\vdots\\\sum_{d|n}\zeta_d &= b_n-a_n\end{cases}$$
 
