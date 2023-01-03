@@ -477,13 +477,13 @@ $$|E(H)| \le 3|V(H)|-6 = 15.\quad(\to\gets)$$
 
 題目問的是找出一個字典序最小的非負整數解 $(\zeta_1, \zeta_2, \ldots, \zeta_n)$，滿足對任意 $k = 1, 2, \ldots, n$，在 $\operatorname{mod}m$ 下都有
 
-\begin{equation}\label{xmas}\begin{cases}\zeta_1 &= b_1-a_1\\\zeta_1+\zeta_2 &= b_2-a_2\\\zeta_1+\zeta_3 &= b_3-a_3\\\zeta_1+\zeta_2+\zeta_4 &= b_4-a_4\\\vdots\\\sum_{d|n}\zeta_d &= b_n-a_n\end{cases}\end{equation}
+$$\begin{cases}\zeta_1 &= b_1-a_1\\\zeta_1+\zeta_2 &= b_2-a_2\\\zeta_1+\zeta_3 &= b_3-a_3\\\zeta_1+\zeta_2+\zeta_4 &= b_4-a_4\\\vdots\\\sum_{d|n}\zeta_d &= b_n-a_n\end{cases}$$
 
 一個簡單的做法是高斯消去法，直接做需要 $O(n^3)$ 時間，可通過前兩個子任務。
 
 ### $O(n^2)$ 演算法
 
-注意 $(\ref{xmas})$ 的[係數矩陣](https://en.wikipedia.org/wiki/Coefficient_matrix) (coefficient matrix) 是對角線皆為 $1$ 的下三角矩陣，故用第 $i$ 列向下消去第 $j$ 列只需要 $O(1)$ 時間，時間複雜度降為 $O(n^2)$。
+注意上式的[係數矩陣](https://en.wikipedia.org/wiki/Coefficient_matrix) (coefficient matrix) 是對角線皆為 $1$ 的下三角矩陣，故用第 $i$ 列向下消去第 $j$ 列只需要 $O(1)$ 時間，時間複雜度降為 $O(n^2)$。
 
 ### $O(n \log n)$ 演算法
 
