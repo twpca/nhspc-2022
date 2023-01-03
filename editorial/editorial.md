@@ -410,7 +410,11 @@ $$|V_\text{in}(Q)| > 0, |V_\text{out}(Q)| > 0.$$
 
 $$|V_\text{in}(Q)| + |V_\text{out}(Q)| = 10,$$
 
-我們可以假設 $V_\text{in}(Q)$ 的頂點數不超過 $5$。另一方面，由於 $G$ 裡所有點的度數皆至少為 $5$，必須有 $V_\text{in}(Q) \ge 2$。本節令 $H$ 為導出子圖 $G[V(Q) \cup V_\text{in}(Q)]$。
+我們可以假設 $V_\text{in}(Q)$ 的頂點數不超過 $5$。另一方面，由於 $G$ 裡所有點的度數皆至少為 $5$，必須有
+
+$$|V_\text{in}(Q)| \ge 2.$$
+
+本節令 $H$ 為導出子圖 $G[V(Q) \cup V_\text{in}(Q)]$。
 
 #### 情況 1：$V_\text{in}(Q)$ 恰包含 $2$ 個頂點
 
@@ -470,3 +474,17 @@ $$|E(H)| \le 3|V(H)|-6 = 15.\quad(\to\gets)$$
 ---
 
 ## I - xmas
+
+題目問的是找出一個字典序最小的非負整數解 $(\zeta_1, \zeta_2, \ldots, \zeta_n)$，滿足對任意 $k = 1, 2, \ldots, n$，在 $\operatorname{mod}m$ 下都有
+
+\begin{equation}\label{xmas}\begin{cases}\zeta_1 &= b_1-a_1\\\zeta_1+\zeta_2 &= b_2-a_2\\\zeta_1+\zeta_3 &= b_3-a_3\\\zeta_1+\zeta_2+\zeta_4 &= b_4-a_4\\\vdots\\\sum_{d|n}\zeta_d &= b_n-a_n\end{cases}\end{equation}
+
+一個簡單的做法是高斯消去法，直接做需要 $O(n^3)$ 時間，可通過前兩個子任務。
+
+### $O(n^2)$ 演算法
+
+注意 $(\ref{xmas})$ 的[係數矩陣](https://en.wikipedia.org/wiki/Coefficient_matrix) (coefficient matrix) 是對角線皆為 $1$ 的下三角矩陣，故用第 $i$ 列向下消去第 $j$ 列只需要 $O(1)$ 時間，時間複雜度降為 $O(n^2)$。
+
+### $O(n \log n)$ 演算法
+
+注意在拿第 $i$ 列做消去時，等號左邊只有 $\zeta_i$ 一項，故只需要消去第 $2i, 3i, 4i, \ldots$ 列就可以了。總共需要消去 $O\left(n + \left\lfloor\frac n2\right\rfloor + \left\lfloor\frac n3\right\rfloor + \ldots\right) = O(n\log n)$ 次，時間複雜度降為 $O(n\log n)$，可通過第三個子任務。
