@@ -12,15 +12,15 @@ layout: default
 
 ## B - bicycle
 
-最小權最大二分匹配：
+### 最小權最大二分匹配
 
 這題可以看成是腳踏車與空位之間的最小權最大二分匹配，可以建出一張完全二分圖 K<sub>n,m</sub>，邊權即為移動的距離。
 
-可以用 costflow 或者匈牙利算法解，複雜度可以做到 O((n+m)<sup>3</sup>)。
+可以用 [costflow](https://en.wikipedia.org/wiki/Minimum-cost_flow_problem) 或者[匈牙利算法](https://en.wikipedia.org/wiki/Hungarian_algorithm)解，複雜度可以做到 O((n+m)<sup>3</sup>)。
 
 ----
 
-交換率：
+### 交換率
 
 設 b<sub>1</sub>, b<sub>2</sub> 為兩台腳踏車座標， s<sub>1</sub>, s<sub>2</sub> 為兩個空位座標。
 且 b<sub>1</sub> < b<sub>2</sub> < s<sub>1</sub> < s<sub>2</sub>。
@@ -58,7 +58,7 @@ digraph {
 
 ----
 
-O(nm) DP：
+### O(nm) DP
 
 根據上面的交換率，必定存在一組最佳解，使得**座標越大的腳踏車移動到的空位座標也越大**。
 
@@ -90,7 +90,7 @@ digraph {
 
 ----
 
-O(m log m) DP：
+### O(m log m) DP
 
 **性質1**： 根據上面的交換率，必定存在一組最佳解，使得每台腳踏車以及其歸還位置的連線線段**不存在部分相交**，
 也就是說要嘛一線段完全包含另一線段，或者完全不相交。
@@ -126,28 +126,28 @@ digraph {
 digraph {
   b1;
   b2;
+  s1 [style=filled];
+  s2 [style=filled];
   s3 [style=filled];
-  s4 [style=filled];
-  s5 [style=filled];
-  {rank=min; b1 -> b2 -> s3 -> s4 -> s5 [style="invis"]};
+  {rank=min; b1 -> b2 -> s1 -> s2 -> s3 [style="invis"]};
   
-  b1 -> s5;
-  b2 -> s4;
+  b1 -> s3;
+  b2 -> s2;
 }
 ```
-(b1, s5 中間有一個空位未使用)
+(b1, s3 中間有一個空位未使用)
 
 ```graphviz
 digraph {
   b1;
   b2;
+  s1 [style=filled];
+  s2 [style=filled];
   s3 [style=filled];
-  s4 [style=filled];
-  s5 [style=filled];
-  {rank=min; b1 -> b2 -> s3 -> s4 -> s5 [style="invis"]};
+  {rank=min; b1 -> b2 -> s1 -> s2 -> s3 [style="invis"]};
   
-  b1 -> s4;
-  b2 -> s3;
+  b1 -> s2;
+  b2 -> s1;
 }
 ```
 (b1, b2歸還點都往左移填滿空格，可以構造出一個更好的解)
@@ -167,13 +167,13 @@ digraph {
 
 ## C - card
 
-Ω(2<sup>n</sup>) 做法：
+### Ω(2<sup>n</sup>) 做法
 
 每一回合可以枚舉要選擇最左邊還最右邊的卡片，全枚舉的話因為一共有 n 回合所以複雜度為 Ω(2<sup>n</sup>)。
 
 ----
 
-O(n<sup>2</sup>) 做法：
+### O(n<sup>2</sup>) 做法
 
 可以用 DP 來記錄可得到的最大分數，例如狀態 `dp[x][y]` = [x, y] 選完區間的卡片能得的最大分數，則我們有
 
@@ -193,7 +193,7 @@ O(n<sup>2</sup>) 做法：
 這題的齒輪方向以及轉速是可以分開討論的:
 
 * 旋轉方向：由左至右，每遇到一個「接合」方向乘以 -1，否則不改變方向
-* 旋轉速度：若第 $i$, $i+1$ 個齒輪為接合（$c_i = 1$），轉速除以 $i$ 的齒數乘以 $i+1$ 的齒數，否則轉速不變
+* 旋轉速度：若第 i, i+1 個齒輪為接合（c<sub>i</sub> = 1），轉速除以 i 的齒數乘以 i+1 的齒數，否則轉速不變
 
 複雜度是 O(n)。
 
@@ -288,9 +288,9 @@ constexpr std::array<std::array<int, S>, R> Binom = get_binom();
 
 $$|E| = \frac{k}{2}n,$$
 
-而任意 $3$ 個點以上的平面圖皆滿足
+根據 [Euler's formula](https://en.wikipedia.org/wiki/Planar_graph#Euler's_formula)，任意 $3$ 個點以上的平面圖皆滿足
 
-$$|E| \le 3|V|-6,$$
+$$|E| \le 3|V|-6,$$ 
 
 可知 $k \ge 6$ 必定無解。以下我們對 $k \le 5$ 做逐一說明。
 
